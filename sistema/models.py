@@ -16,3 +16,11 @@ class Curso(models.Model):
     
     def __str__(self):
         return self.nombre_curso
+    
+class NotasAlumnosPorCurso(models.Model):
+    id_notas= models.AutoField(primary_key=True)
+    id_alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
+    id_curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    nota1 = models.PositiveBigIntegerField(blank=True, null=True)
+    nota2 = models.PositiveBigIntegerField(blank=True, null=True)
+    nota3 = models.PositiveBigIntegerField(blank=True, null=True)
