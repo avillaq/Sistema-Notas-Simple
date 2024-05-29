@@ -9,3 +9,10 @@ class Alumno(models.Model):
     
     def __str__(self):
         return self.nombre_alumno
+
+class Curso(models.Model):
+    id_curso = models.AutoField(primary_key=True)
+    nombre_curso = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return self.nombre_curso
