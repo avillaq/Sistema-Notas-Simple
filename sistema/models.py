@@ -24,3 +24,6 @@ class NotasAlumnosPorCurso(models.Model):
     nota1 = models.PositiveBigIntegerField(blank=True, null=True)
     nota2 = models.PositiveBigIntegerField(blank=True, null=True)
     nota3 = models.PositiveBigIntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.id_alumno.nombre_alumno} {self.id_curso.nombre_curso}"
