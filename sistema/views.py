@@ -5,7 +5,13 @@ def index(request):
     return render(request, 'index.html')
 
 def crear_alumno(request):
-    form = AlumnoForm()
+    if request.method == 'POST':
+        form = AlumnoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = AlumnoForm()
     return render(request, 'crear_alumno.html', {'form': form})
 
 def crear_curso(request):
