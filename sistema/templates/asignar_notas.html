@@ -17,7 +17,7 @@
         <input type="hidden" name="id_alumno" value="{{ id_alumno }}">
         <select name="id_curso">
             {% for curso in cursos %}
-            <option value="{{ curso.id_curso }}">{{ curso.id_curso.nombre_curso }}</option>
+            <option value="{{ curso.id_curso.id_curso }}">{{ curso.id_curso.nombre_curso }}</option>
             {% endfor %}
         </select>
         <label for="nota1">Nota 1:</label>
