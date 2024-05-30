@@ -12,6 +12,22 @@
 </head>
 <body>
     <h1>Asignar Notas</h1>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="id_alumno" value="{{ alumno.id_alumno }}">
+        <select name="id_curso">
+            {% for curso in cursos %}
+            <option value="{{ curso.id_curso }}">{{ curso.id_curso.nombre_curso }}</option>
+            {% endfor %}
+        </select>
+        <label for="nota1">Nota 1:</label>
+        <input type="number" name="nota1" id="nota1" required>
+        <label for="nota2">Nota 2:</label>
+        <input type="number" name="nota2" id="nota2" required>
+        <label for="nota3">Nota 3:</label>
+        <input type="number" name="nota3" id="nota3" required>
+        <button type="submit">Guardar</button>
+    </form>
 
 </body>
 </html>

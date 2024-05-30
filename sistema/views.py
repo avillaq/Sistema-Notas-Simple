@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 from .forms import CursoForm, AlumnoForm
-from .models import Alumno
+from .models import Alumno, NotasAlumnosPorCurso
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -28,3 +28,7 @@ def crear_curso(request):
 def lista_alumnos(request):
     alumnos = Alumno.objects.all()
     return render(request, 'lista_alumnos.html', {'alumnos': alumnos})
+
+def asignar_nota(request, id_alumno):
+    cursos = NotasAlumnosPorCurso.objects.filter(id_alumno=id_alumno)
+    return render(request, 'asignar_notas.html', {'alumno': id_alumno, 'cursos': cursos})
