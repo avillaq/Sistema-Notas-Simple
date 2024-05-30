@@ -1,7 +1,7 @@
 from django import forms 
 from .models import Alumno, Curso, NotasAlumnosPorCurso
 # creating a form 
-class CursoForm(forms.Form): 
+class CursoForm(forms.ModelForm): 
     nombre_curso = forms.CharField(max_length=30, label='Nombre del curso') 
 
     class Meta:
@@ -15,10 +15,11 @@ class CursoForm(forms.Form):
             curso.save()
         return curso
 
-class AlumnoForm(forms.Form):
+class AlumnoForm(forms.ModelForm):
     nombre_alumno = forms.CharField(max_length=30, label='Nombre del alumno')
     apellido_alumno = forms.CharField(max_length=30, label='Apellidos del alumno')
+    cursos = forms.ModelMultipleChoiceField(queryset=Curso.objects.all(), label='Cursos')
 
     class Meta:
         model = Alumno
-        fields = ['nombre_alumno', 'apellido_alumno']
+        fields = ['nombre_alumno', 'apellido_alumno', 'cursos']
