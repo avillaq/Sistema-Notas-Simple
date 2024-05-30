@@ -12,6 +12,23 @@
 </head>
 <body>
     <h1>Lista Alumnos</h1>
-
-</body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alumno in alumnos %}
+            <tr>
+                <td>{{ alumno.nombre_alumno }} {{ alumno.apellido_alumno}}</td>
+                <td>
+                    <a href="#">Asignar nota</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body> 
 </html>
