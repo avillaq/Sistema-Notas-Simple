@@ -24,7 +24,7 @@
             <tr>
                 <td>{{ alumno.nombre_alumno }} {{ alumno.apellido_alumno}}</td>
                 <td>
-                    <a href="#">Asignar nota</a>
+                    <a href="{% url 'asignar_nota' alumno.id_alumno %}">Asignar nota</a>
                 </td>
             </tr>
             {% endfor %}
