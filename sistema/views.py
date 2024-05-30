@@ -24,5 +24,5 @@ def crear_curso(request):
         form = CursoForm()
     return render(request, 'crear_curso.html', {'form': form})
 
-def asignar_notas(request):
-    return render(request, 'asignar_notas.html')
+def lista_alumnos(request):
+    return render(request, 'lista_alumnos.html')
