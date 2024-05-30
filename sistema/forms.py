@@ -7,6 +7,13 @@ class CursoForm(forms.Form):
     class Meta:
         model = Curso
         fields = ['nombre_curso']
+    
+    def save(self, commit=True):
+        nombre_curso = self.cleaned_data.get('nombre_curso')
+        curso, estado = Curso.objects.get_or_create(nombre_curso=nombre_curso)
+        if commit:
+            curso.save()
+        return curso
 
 class AlumnoForm(forms.Form):
     nombre_alumno = forms.CharField(max_length=30, label='Nombre del alumno')
