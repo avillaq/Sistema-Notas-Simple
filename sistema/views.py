@@ -32,3 +32,16 @@ def lista_alumnos(request):
 def asignar_nota(request, id_alumno):
     cursos = NotasAlumnosPorCurso.objects.filter(id_alumno=id_alumno)
     return render(request, 'asignar_notas.html', {'alumno': id_alumno, 'cursos': cursos})
+
+def guardar_nota(request):
+    id_alumno = request.POST.get('id_alumno')
+    id_curso = request.POST.get('id_curso')
+    nota1 = request.POST.get('nota1')
+    nota2 = request.POST.get('nota2')
+    nota3 = request.POST.get('nota3')
+    notas, estado = NotasAlumnosPorCurso.objects.get_or_create(id_alumno_id=id_alumno, id_curso_id=id_curso)
+    notas.nota1 = nota1
+    notas.nota2 = nota2
+    notas.nota3 = nota3
+    notas.save()
+    return redirect('index')

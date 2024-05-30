@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>Asignar Notas</h1>
-    <form action="#" method="POST">
+    <form action="{% url 'guardar_nota' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="id_alumno" value="{{ alumno.id_alumno }}">
         <select name="id_curso">
