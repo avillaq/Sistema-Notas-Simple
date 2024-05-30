@@ -1,11 +1,12 @@
 from django.shortcuts import render , redirect
-from .forms import CursoForm
+from .forms import CursoForm, AlumnoForm
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
 def crear_alumno(request):
-    return render(request, 'crear_alumno.html')
+    form = AlumnoForm()
+    return render(request, 'crear_alumno.html', {'form': form})
 
 def crear_curso(request):
     if request.method == 'POST':
